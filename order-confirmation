@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moto Forge | Order Confirmed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Moto Forge</h1>
+        <p>Gear Up. Ride Bold.</p>
+    </header>
+
+    <main>
+        <section id="confirmation">
+            <h2>Order Confirmed!</h2>
+            <p>Thank you for your purchase. Your Moto Forge gear is officially on its way.</p>
+
+            <div class="confirmation-box">
+                <p><strong>Order Status:</strong> Processing</p>
+                <p><strong>Estimated Delivery:</strong> 3–5 business days</p>
+                <p><strong>Confirmation Number:</strong> MF‑<span id="order-number"></span></p>
+            </div>
+
+            <button onclick="window.location.href='index.html'">Return to Shop</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Moto Forge. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Generate a simple confirmation number
+        function generateOrderNumber() {
+            const num = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById("order-number").textContent = num;
+        }
+
+        generateOrderNumber();
+    </script>
+
+</body>
+</html>
