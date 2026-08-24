@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moto Forge | Checkout</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Moto Forge</h1>
+        <p>Gear Up. Ride Bold.</p>
+    </header>
+
+    <main>
+        <section id="checkout">
+            <h2>Checkout</h2>
+            <p>Review your order and confirm your purchase.</p>
+
+            <div id="checkout-summary">
+                <p><strong>Cart Total:</strong> <span id="checkout-total">$0.00</span></p>
+                <p>Your items are reserved and ready to ride.</p>
+            </div>
+
+            <button onclick="confirmOrder()">Confirm Order</button>
+            <button onclick="window.location.href='index.html'">Back to Shop</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Moto Forge. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Load cart and inventory from localStorage
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const inventory = JSON.parse(localStorage.getItem("inventory")) || [];
+
+        function renderCheckoutTotal() {
+            let total = 0;
+            cart.forEach(item => {
+                const product = inventory.find(p => p.id === item.id);
+                if (product) {
+                    total += product.price * item.quantity;
+                }
+            });
+            document.getElementById("checkout-total").textContent = `$${total.toFixed(2)}`;
+        }
+
+        function confirmOrder() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                window.location.href = "index.html";
+                return;
+            }
+
+            // Simple confirmation flow for the project
+            alert("Thank you for your purchase! Your Moto Forge gear is on its way.");
+            localStorage.removeItem("cart");
+            window.location.href = "index.html";
+        }
+
+        renderCheckoutTotal();
+    </script>
+</body>
+</html>
