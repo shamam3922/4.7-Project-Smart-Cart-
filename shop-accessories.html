@@ -8,25 +8,34 @@
 </head>
 
 <body>
-<header class="site-header">
-    <nav class="navbar">
-        <h1 class="logo">Moto Forge</h1>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-        </ul>
-    </nav>
-</header>
 
-<main>
+    <header class="site-header">
+        <nav class="navbar">
+            <h1 class="logo">Moto Forge</h1>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+
+   <main>
     <section class="page-header">
         <h2>Accessories</h2>
         <p>Enhance your ride with premium add-ons.</p>
     </section>
+
+    <!-- Product grid MUST be inside the body -->
+    <div id="product-grid"></div>
 </main>
 
 <footer class="site-footer">
     <p>&copy; 2026 Moto Forge</p>
 </footer>
+
+<!-- Script MUST be inside the body, at the bottom -->
+<script src="ProductDisplay.js"></script>
+
 </body>
 </html>
+
