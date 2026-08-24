@@ -4,59 +4,71 @@
     Purpose: 3.6
 */
 
-/// STEP 1: Product Data (10 items minimum) 
+// ===============================
+// Product List
+// ===============================
 
-const products = [ 
+const products = [
+    {
+        name: "Rider Pro Helmet",
+        price: "$129.99",
+        image: "images/helmet1.jpg",
+        link: "product-helmet1.html"
+    },
+    {
+        name: "Forge Leather Jacket",
+        price: "$199.99",
+        image: "images/jacket1.jpg",
+        link: "product-jacket1.html"
+    },
+    {
+        name: "MotoGrip Gloves",
+        price: "$49.99",
+        image: "images/gloves1.jpg",
+        link: "product-gloves1.html"
+    },
+    {
+        name: "TrailMaster Boots",
+        price: "$159.99",
+        image: "images/boots1.jpg",
+        link: "product-boots1.html"
+    }
+];
 
-  { name: "Bell MX-9 Adventure Helmet", price: 199.99, category: "Helmets" }, 
+// ===============================
+// Render Products to Page
+// ===============================
 
-  { name: "Alpinestars GP Plus R V2 Jacket", price: 349.99, category: "Jackets" }, 
+function renderProducts() {
+    const container = document.getElementById("product-grid");
 
-  { name: "Dainese Carbon 4 Gloves", price: 129.99, category: "Gloves" }, 
+    // If page doesn't have a product grid, stop quietly
+    if (!container) {
+        console.warn("No #product-grid found on this page.");
+        return;
+    }
 
-  { name: "Klim Adventure GTX Boots", price: 299.99, category: "Boots" }, 
+    // Build product cards
+    let html = "";
+    products.forEach(product => {
+        html += `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p class="price">${product.price}</p>
+                <a href="${product.link}" class="btn">View Details</a>
+            </div>
+        `;
+    });
 
-  { name: "REV'IT Defender Pants", price: 249.99, category: "Pants" }, 
+    container.innerHTML = html;
+}
 
-  { name: "Fox Racing Comp Boots", price: 199.99, category: "Boots" }, 
+// ===============================
+// Run When Page Loads
+// ===============================
 
-  { name: "Bell Qualifier DLX Helmet", price: 169.99, category: "Helmets" }, 
-
-  { name: "Alpinestars SMX-1 Air Gloves", price: 69.99, category: "Gloves" }, 
-
-  { name: "Klim Marrakesh Jacket", price: 289.99, category: "Jackets" }, 
-
-  { name: "REV'IT Sand 4 Gloves", price: 109.99, category: "Gloves" } 
-
-]; 
-
-   
-
-const productContainer = document.getElementById("Product Display"); 
-
-  
-
-// STEP 3: Loop through products and display them 
-
-products.forEach(item => { 
-
-  productContainer.innerHTML += ` 
-
-    <div class="product-card"> 
-
-      <h3>${item.name}</h3> 
-
-      <p class="category">${item.category}</p> 
-
-      <p class="price">$${item.price.toFixed(2)}</p> 
-
-      <button class="btn-primary">View Product</button> 
-
-    </div> 
-
-  `; 
-
-}); 
+document.addEventListener("DOMContentLoaded", renderProducts);
 
  
 
