@@ -1,105 +1,52 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Moto Forge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-<html lang="en">  
+<body>
 
-<head>  
-
-    <meta charset="UTF-8">  
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-
-    <title>Shop | Moto Forge</title>  
-
-    <link rel="stylesheet" href="styles.css">  
-
-</head>  
-
-   
-
-<body>  
-
-<header class="site-header">  
-
-    <nav class="navbar">  
-
-        <h1 class="logo">Moto Forge</h1>  
-
-        <ul class="nav-links">  
-
-            <li><a href="index.html">Home</a></li>  
-
-            <li><a class="active" href="shop.html">Shop</a></li>  
-
-        </ul>  
-
-    </nav>  
-
-</header>  
-
-   
+<header class="site-header">
+    <nav class="navbar">
+        <h1 class="logo">Moto Forge</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="shop.html">Shop</a></li>
+        </ul>
+    </nav>
+</header>
 
 <main>
+
     <section class="page-header">
-        <h2>Shop All</h2>
+        <h2>Shop All Gear</h2>
         <p>Explore all Moto Forge gear in one place.</p>
     </section>
-<div class="product" 
-     data-id="jacket1" 
-     data-name="Forge Leather Jacket" 
-     data-price="199.99" 
-     data-stock="5">
-  <img src="images/jacket1.jpg" alt="Forge Leather Jacket">
-  <h3>Forge Leather Jacket</h3>
-  <p>$199.99</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-</div>
 
-<!-- Cart section (could be on a dedicated cart.html page) -->
-<section id="cart">
-  <h2>Your Cart</h2>
-  <table id="cart-items">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <p id="cart-total">Total: $0.00</p>
-
-  <button id="clear-cart">Clear Cart</button>
-  <button id="checkout-btn">Go to Checkout</button>
-</section>
-
-    <!-- Product grid MUST be inside the body -->
+    <!-- PRODUCT GRID -->
     <div id="product-grid"></div>
+
+    <!-- CART SECTION -->
+    <section id="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p><strong>Total:</strong> <span id="cart-total">$0.00</span></p>
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="checkout()">Checkout</button>
+    </section>
+
 </main>
 
 <footer class="site-footer">
     <p>&copy; 2026 Moto Forge</p>
 </footer>
 
-<!-- Script MUST be inside the body, at the bottom -->
 <script src="ProductDisplay.js"></script>
+<script src="cart.js"></script>
 
-</body>
-</html>
-
-
-   
-
-<footer class="site-footer">
-    <p>&copy; 2026 Moto Forge</p>
-</footer>
-
-
-<script src="ProductDisplay.js"></script>
-<script src="Cart.js"></script>
 </body>
 </html>
 
