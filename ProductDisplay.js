@@ -9,66 +9,44 @@
 // ===============================
 
 const products = [
-    {
-        name: "Rider Pro Helmet",
-        price: "$129.99",
-        image: "images/helmet1.jpg",
-        link: "product-helmet1.html"
-    },
-    {
-        name: "Forge Leather Jacket",
-        price: "$199.99",
-        image: "images/jacket1.jpg",
-        link: "product-jacket1.html"
-    },
-    {
-        name: "MotoGrip Gloves",
-        price: "$49.99",
-        image: "images/gloves1.jpg",
-        link: "product-gloves1.html"
-    },
-    {
-        name: "TrailMaster Boots",
-        price: "$159.99",
-        image: "images/boots1.jpg",
-        link: "product-boots1.html"
-    }
+  { name: "Rider Pro Helmet", price: "$129.99", image: "images/helmet1.jpg", link: "product-helmet1.html", category: "helmets" },
+  { name: "Forge Leather Jacket", price: "$199.99", image: "images/jacket1.jpg", link: "product-jacket1.html", category: "jackets" },
+  { name: "MotoGrip Gloves", price: "$49.99", image: "images/gloves1.jpg", link: "product-gloves1.html", category: "gloves" },
+  { name: "TrailMaster Boots", price: "$159.99", image: "images/boots1.jpg", link: "product-boots1.html", category: "boots" }
 ];
 
-// ===============================
-// Render Products to Page
-// ===============================
-
 function renderProducts() {
-    const container = document.getElementById("product-grid");
+  const container = document.getElementById("product-grid");
+  if (!container) return;
 
-    // If page doesn't have a product grid, stop quietly
-    if (!container) {
-        console.warn("No #product-grid found on this page.");
-        return;
-    }
+  const page = window.location.pathname;
+  let category = "";
 
-    // Build product cards
-    let html = "";
-    products.forEach(product => {
-        html += `
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p class="price">${product.price}</p>
-                <a href="${product.link}" class="btn">View Details</a>
-            </div>
-        `;
-    });
+  if (page.includes("helmets")) category = "helmets";
+  else if (page.includes("jackets")) category = "jackets";
+  else if (page.includes("gloves")) category = "gloves";
+  else if (page.includes("boots")) category = "boots";
+  else category = "all";
 
-    container.innerHTML = html;
+  const filtered = category === "all"
+    ? products
+    : products.filter(p => p.category === category);
+
+  filtered.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p>${p.price}</p>
+      <a href="${p.link}">View Details</a>
+    `;
+    container.appendChild(card);
+  });
 }
 
-// ===============================
-// Run When Page Loads
-// ===============================
+renderProducts();
 
-document.addEventListener("DOMContentLoaded", renderProducts);
 
  
 
