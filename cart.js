@@ -201,4 +201,7 @@ function showAddFeedback(name) {
 // Initialize UI
 renderProducts();
 renderCart();
+// Initialize UI
+renderProducts();
+renderCart();
 
