@@ -151,9 +151,9 @@ function renderCart() {
                 <p>$${product.price.toFixed(2)}</p>
 
                 <input type="number" min="1" value="${item.quantity}"
-                    onchange="updateQuantity(${item.id}, this.value)" />
+                    onchange="updateQuantity('${item.id}', this.value)"
+<button onclick="removeFromCart('${item.id}')">Remove</button>
 
-                <button onclick="removeFromCart(${item.id})">Remove</button>
             </div>
         `;
     });
@@ -178,7 +178,7 @@ function renderProducts() {
             <div class="product-card">
                 <h3>${product.name}</h3>
                 <p>$${product.price}</p>
-                <button ${disabled} ${tooltip} onclick="addToCart(${product.id})">
+        <button ${disabled} ${tooltip} onclick="addToCart('${product.id}')">
                     Add to Cart
                 </button>
             </div>
