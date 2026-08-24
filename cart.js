@@ -53,7 +53,7 @@ function addToCart(id) {
     saveInventory();
     renderCart();
     showAddFeedback(product.name);
-    renderProducts(); // update buttons
+    renderProducts();
 }
 
 // ===============================
@@ -119,4 +119,86 @@ function clearCart() {
 // CHECKOUT
 // ===============================
 function checkout() {
-    if (cart.length
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    window.location.href = "checkout.html";
+}
+
+// ===============================
+// CART DISPLAY
+// ===============================
+function renderCart() {
+    const cartItemsDiv = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+
+    if (!cartItemsDiv || !cartTotal) return;
+
+    cartItemsDiv.innerHTML = "";
+    let total = 0;
+
+    cart.forEach(item => {
+        const product = inventory.find(p => p.id === item.id);
+        const itemTotal = product.price * item.quantity;
+        total += itemTotal;
+
+        cartItemsDiv.innerHTML += `
+            <div class="cart-item">
+                <h4>${product.name}</h4>
+                <p>$${product.price.toFixed(2)}</p>
+
+                <input type="number" min="1" value="${item.quantity}"
+                    onchange="updateQuantity(${item.id}, this.value)" />
+
+                <button onclick="removeFromCart(${item.id})">Remove</button>
+            </div>
+        `;
+    });
+
+    cartTotal.textContent = `$${total.toFixed(2)}`;
+}
+
+// ===============================
+// PRODUCT DISPLAY (STOCK AWARE)
+// ===============================
+function renderProducts() {
+    const container = document.getElementById("product-grid");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    inventory.forEach(product => {
+        const disabled = product.stock <= 0 ? "disabled" : "";
+        const tooltip = product.stock <= 0 ? "title='Out of Stock'" : "";
+
+        container.innerHTML += `
+            <div class="product-card">
+                <h3>${product.name}</h3>
+                <p>$${product.price}</p>
+                <button ${disabled} ${tooltip} onclick="addToCart(${product.id})">
+                    Add to Cart
+                </button>
+            </div>
+        `;
+    });
+}
+
+// ===============================
+// VISUAL FEEDBACK
+// ===============================
+function showAddFeedback(name) {
+    const box = document.createElement("div");
+    box.className = "add-feedback";
+    box.textContent = `${name} added to cart!`;
+
+    document.body.appendChild(box);
+
+    setTimeout(() => box.remove(), 1500);
+}
+
+// Initialize UI
+renderProducts();
+renderCart();
+
