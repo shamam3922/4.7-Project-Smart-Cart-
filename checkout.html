@@ -30,36 +30,34 @@
         <p>&copy; 2026 Moto Forge. All rights reserved.</p>
     </footer>
 
-    <script>
-        // Load cart and inventory from localStorage
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const inventory = JSON.parse(localStorage.getItem("inventory")) || [];
+   <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const inventory = JSON.parse(localStorage.getItem("inventory")) || [];
 
-        function renderCheckoutTotal() {
-            let total = 0;
-            cart.forEach(item => {
-                const product = inventory.find(p => p.id === item.id);
-                if (product) {
-                    total += product.price * item.quantity;
-                }
-            });
-            document.getElementById("checkout-total").textContent = `$${total.toFixed(2)}`;
-        }
-
-        function confirmOrder() {
-            if (cart.length === 0) {
-                alert("Your cart is empty!");
-                window.location.href = "index.html";
-                return;
+    function renderCheckoutTotal() {
+        let total = 0;
+        cart.forEach(item => {
+            const product = inventory.find(p => p.id === item.id);
+            if (product) {
+                total += product.price * item.quantity;
             }
+        });
+        document.getElementById("checkout-total").textContent = `$${total.toFixed(2)}`;
+    }
 
-            // Simple confirmation flow for the project
-            alert("Thank you for your purchase! Your Moto Forge gear is on its way.");
-            localStorage.removeItem("cart");
+    function confirmOrder() {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
             window.location.href = "index.html";
+            return;
         }
 
-        renderCheckoutTotal();
-    </script>
+        localStorage.removeItem("cart");
+        window.location.href = "order-confirmation.html";
+    }
+
+    renderCheckoutTotal();
+</script>
+
 </body>
 </html>
