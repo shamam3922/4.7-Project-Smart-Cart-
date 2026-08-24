@@ -1,0 +1,63 @@
+/* Moto Forge Brand Theme */ :root { --forge-black: #1A1A1A; --throttle-orange: #FF6B00; --steel-gray: #4A4A4A; --ghost-white: #F5F5F5; --font-display: 'Oswald', sans-serif; --font-body: 'Inter', sans-serif; } 
+
+body { margin: 0; font-family: var(--font-body); background: var(--ghost-white); color: var(--forge-black); } 
+
+/* Header */ .site-header { background: var(--forge-black); padding: 1rem; } 
+
+.navbar { display: flex; justify-content: space-between; align-items: center; } 
+
+.logo { color: var(--throttle-orange); font-family: var(--font-display); font-size: 1.8rem; } 
+
+.nav-links { list-style: none; display: flex; gap: 1rem; } 
+
+.nav-links a { color: var(--ghost-white); text-decoration: none; } 
+
+.nav-links a:hover { color: var(--throttle-orange); } 
+
+/* Hero */ .hero { background: var(--forge-black); color: var(--ghost-white); text-align: center; padding: 4rem 1rem; } 
+
+.btn-primary { background: var(--throttle-orange); padding: 0.75rem 1.5rem; color: #fff; text-decoration: none; } 
+
+.btn-outline { border: 2px solid var(--ghost-white); padding: 0.75rem 1.5rem; color: var(--ghost-white); text-decoration: none; } 
+
+/* Category Grid */ .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 2rem; } 
+
+.category-card { background: var(--steel-gray); color: var(--ghost-white); padding: 1.5rem; text-align: center; text-decoration: none; } 
+
+/* Contact Form Styling */ .contact-form-section { max-width: 600px; margin: 40px auto; padding: 20px; } 
+
+.contact-form { display: flex; flex-direction: column; gap: 15px; } 
+
+.contact-form label { font-weight: bold; } 
+
+.contact-form input, .contact-form textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; } 
+
+.contact-form textarea { height: 150px; resize: vertical; } 
+
+.contact-form button { padding: 12px; background: #000; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; } 
+
+.contact-form button:hover { background: #444; } 
+
+ /* Shipping Form Styling */ .shipping-section { max-width: 600px; margin: 40px auto; padding: 20px; } 
+
+.shipping-form { display: flex; flex-direction: column; gap: 15px; } 
+
+.shipping-form label { font-weight: bold; } 
+
+.shipping-form input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; } 
+
+/* Checkout Form Styling */ .checkout-section { max-width: 600px; margin: 40px auto; padding: 20px; } 
+
+.checkout-form { display: flex; flex-direction: column; gap: 15px; } 
+
+.checkout-form label { font-weight: bold; } 
+
+.checkout-form input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; } 
+
+.checkout-form button { padding: 12px; background: #000; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 1rem; } 
+
+.checkout-form button:hover { background: #444; } 
+
+/* Footer */ .site-footer { background: var(--forge-black); color: var(--ghost-white); text-align: center; padding: 1rem; } 
+
+ 

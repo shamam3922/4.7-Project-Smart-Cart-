@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<!--
+    Project: Moto Forge – Motorcycle Gear & Apparel E-Commerce Website
+    Author:  Shaun Mammano
+    Date:    August 2, 2026
+    Course:  E-Commerce Web Development | ECPI University
+-->
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+<head>  
+
+    <meta charset="UTF-8">  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <title>Moto Forge | Gear Up. Ride Bold.</title>  
+
+    <link rel="stylesheet" href="css.styles.css">  
+
+</head>  
+
+   
+
+<body>  
+
+<header class="site-header">  
+
+    <nav class="navbar">  
+
+        <h1 class="logo">Moto Forge</h1>  
+
+        <ul class="nav-links">  
+
+            <li><a href="index.html">Home</a></li>  
+
+            <li><a href="shop.html">Shop</a></li>  
+
+            <li><a href="brands.html">Brands</a></li>  
+
+            <li><a href="gear-guide.html">Gear Guide</a></li>  
+
+            <li><a href="about.html">About</a></li>  
+
+            <li><a href="support.html">Support</a></li>  
+
+        </ul>  
+
+    </nav>  
+
+</header>  
+<section class="shipping-section"> 
+
+    <h2>Shipping Information</h2> 
+
+
+    <form class="shipping-form" action="#" method="post"> 
+
+  
+
+        <label for="fullName">Full Name *</label> 
+
+        <input type="text" id="fullName" name="fullName" required> 
+
+  
+
+        <label for="address">Street Address *</label> 
+
+        <input type="text" id="address" name="address" required> 
+
+  
+
+        <label for="city">City *</label> 
+
+        <input type="text" id="city" name="city" required> 
+
+  
+
+        <label for="state">State *</label> 
+
+        <input type="text" id="state" name="state" maxlength="2" placeholder="SC" required> 
+
+  
+
+        <label for="zip">ZIP Code *</label> 
+
+        <input type="text" id="zip" name="zip" maxlength="5" required> 
+
+  
+
+        <label for="phone">Phone Number *</label> 
+
+        <input type="tel" id="phone" name="phone" placeholder="555-555-5555" required> 
+
+  
+
+    </form> 
+
+</section> 
+
+<main>  
+    <section class="checkout-section"> 
+
+    <h2>Checkout</h2> 
+
+
+    <form class="checkout-form" action="#" method="post"> 
+
+  
+
+        <label for="cardName">Cardholder Name *</label> 
+
+        <input type="text" id="cardName" name="cardName" required> 
+
+  
+
+        <label for="cardNumber">Credit Card Number *</label> 
+
+        <input type="text" id="cardNumber" name="cardNumber" maxlength="16" required> 
+
+  
+
+        <label for="expDate">Expiration Date *</label> 
+
+        <input type="month" id="expDate" name="expDate" required> 
+
+  
+
+        <label for="cvv">Security Code (CVV) *</label> 
+
+        <input type="text" id="cvv" name="cvv" maxlength="4" required> 
+
+  
+
+        <label for="coupon">Coupon Code</label> 
+
+        <input type="text" id="coupon" name="coupon" placeholder="Optional"> 
+
+  
+
+        <button type="submit" class="btn-primary">Complete Purchase</button> 
+
+    </form> 
+<script> 
+
+    function validateShipping() { 
+
+        const fullName = document.getElementById("fullName").value.trim(); 
+
+        const address = document.getElementById("address").value.trim(); 
+
+        const city = document.getElementById("city").value.trim(); 
+
+        const state = document.getElementById("state").value.trim(); 
+
+        const zip = document.getElementById("zip").value.trim(); 
+
+        const phone = document.getElementById("phone").value.trim(); 
+
+  
+
+        if (!fullName || !address || !city || !state || !zip || !phone) { 
+
+            alert("Please complete all required shipping fields."); 
+
+            return false; 
+
+        } 
+
+        if (zip.length !== 5 || isNaN(zip)) { 
+
+            alert("ZIP Code must be 5 digits."); 
+
+            return false; 
+
+        } 
+
+        if (phone.length < 10) { 
+
+            alert("Phone number must be at least 10 digits."); 
+
+            return false; 
+
+        } 
+
+        return true; 
+
+    } 
+
+  
+
+    function validatePayment() { 
+
+        const cardName = document.getElementById("cardName").value.trim(); 
+
+        const cardNumber = document.getElementById("cardNumber").value.trim(); 
+
+        const expDate = document.getElementById("expDate").value; 
+
+        const cvv = document.getElementById("cvv").value.trim(); 
+
+  
+
+        if (!cardName || !cardNumber || !expDate || !cvv) { 
+
+            alert("Please complete all required payment fields."); 
+
+            return false; 
+
+        } 
+
+        if (cardNumber.length !== 16 || isNaN(cardNumber)) { 
+
+            alert("Credit card number must be 16 digits."); 
+
+            return false; 
+
+        } 
+
+        if (cvv.length < 3 || cvv.length > 4 || isNaN(cvv)) { 
+
+            alert("CVV must be 3 or 4 digits."); 
+
+            return false; 
+
+        } 
+
+        return true; 
+
+    } 
+
+</script> 
+
+<script> 
+
+    function validateShipping() { 
+
+        // your shipping validation code 
+
+    } 
+
+  
+
+    function validatePayment() { 
+
+        // your payment validation code 
+
+    } 
+
+  
+
+    function applyDiscount(total) { 
+
+   const coupon = document.getElementById("coupon").value.trim().toUpperCase(); 
+       let discount = 0; 
+ 
+       if (coupon === "MOTO10") { 
+           discount = total * 0.10; 
+           alert("MOTO10 applied: 10% off your order!"); 
+       } else if (coupon === "GEAR20") { 
+           discount = total * 0.20; 
+           alert("GEAR20 applied: 20% off select gear!"); 
+       } else if (coupon === "FREESHIP") { 
+           alert("FREESHIP applied: Free shipping!"); 
+       } else if (coupon.length > 0) { 
+           alert("Invalid coupon code."); 
+       } 
+ 
+       return total - discount; 
+   } 
+
+
+  
+
+    function completeCheckout() { 
+
+        if (!validateShipping()) return; 
+
+        if (!validatePayment()) return; 
+
+
+        let orderTotal = 299.99; {
+
+        const finalTotal = applyDiscount(orderTotal); 
+
+        alert("Order Complete! Final Total: $" + finalTotal.toFixed(2)); 
+
+        }
+
+</script> 
+
+</body> 
+
+</html> 
+
+</section> 
+
+    <section class="hero">  
+
+        <h2>GEAR UP. RIDE BOLD.</h2>  
+
+        <p>Premium motorcycle gear engineered for riders who demand more.</p>  
+
+        <div class="cta-buttons">  
+
+            <a class="btn-primary" href="shop.html">Shop All Gear</a>  
+
+            <a class="btn-outline" href="shop.html">View New Arrivals</a>  
+
+        </div>  
+
+    </section>  
+
+   
+
+    <section class="categories">  
+
+        <h3>Shop by Category</h3>  
+
+        <div class="category-grid">  
+
+            <a class="category-card" href="shop-helmets.html">Helmets</a>  
+
+            <a class="category-card" href="shop-jackets.html">Jackets</a>  
+
+            <a class="category-card" href="shop-gloves.html">Gloves</a>  
+
+            <a class="category-card" href="shop-boots.html">Boots</a>  
+
+            <a class="category-card" href="shop-pants.html">Pants</a>  
+
+            <a class="category-card" href="shop-accessories.html">Accessories</a>  
+
+        </div>  
+
+    </section>  
+
+   
+
+    <section class="brand-bar">  
+
+        <h3>Top Brands</h3>  
+
+        <div class="brand-logos">  
+
+            <span>Alpinestars</span>  
+
+            <span>Dainese</span>  
+
+            <span>Bell</span>  
+
+            <span>Klim</span>  
+
+            <span>REV'IT</span>  
+
+            <span>Fox Racing</span>  
+
+        </div>  
+
+    </section>  
+
+   
+
+    <section class="featured-products">  
+
+        <h3>Fresh Gear, Just Dropped</h3>  
+
+        <div class="product-grid">  
+
+            <article class="product-card">Product Placeholder</article>  
+
+            <article class="product-card">Product Placeholder</article>  
+
+            <article class="product-card">Product Placeholder</article>  
+
+            <article class="product-card">Product Placeholder</article>  
+
+        </div>  
+
+    </section>  
+
+   
+
+    <section class="trust-bar">  
+
+        <div class="trust-item">Secure Checkout</div>  
+
+        <div class="trust-item">Free Shipping $99+</div>  
+
+        <div class="trust-item">60-Day Returns</div>  
+
+        <div class="trust-item">50,000+ Happy Riders</div>  
+
+    </section>  
+
+</main>  
+
+   
+
+<footer class="site-footer">  
+
+    <p>&copy; 2026 Moto Forge. All Rights Reserved.</p>  
+
+</footer>  
+
+</body>  
+
+</html>  
+
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+<head>  
+
+    <meta charset="UTF-8">  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <title>Shop | Moto Forge</title>  
+
+    <link rel="stylesheet" href="css/styles.css">  
+
+</head>  
+
+   
+
+<body>  
+
+<header class="site-header">  
+
+    <nav class="navbar">  
+
+        <h1 class="logo">Moto Forge</h1>  
+
+        <ul class="nav-links">  
+
+            <li><a href="index.html">Home</a></li>  
+
+            <li><a class="active" href="shop.html">Shop</a></li>  
+
+        </ul>  
+
+    </nav>  
+
+</header>  
+
+   
+
+<main>  
+
+    <section class="page-header">  
+
+        <h2>Shop All Gear</h2>  
+
+    </section>  
+
+   
+
+    <section class="category-grid">  
+
+        <a class="category-card" href="shop-helmets.html">Helmets</a>  
+
+        <a class="category-card" href="shop-jackets.html">Jackets</a>  
+
+        <a class="category-card" href="shop-gloves.html">Gloves</a>  
+
+        <a class="category-card" href="shop-boots.html">Boots</a>  
+
+        <a class="category-card" href="shop-pants.html">Pants</a>  
+
+        <a class="category-card" href="shop-accessories.html">Accessories</a>  
+
+        <a class="category-card" href="shop-women.html">Women's Gear</a>  
+
+        <a class="category-card" href="shop-sale.html">Sale / Clearance</a>  
+
+    </section>  
+
+</main>  
+
+   
+
+<footer class="site-footer">  
+
+    <p>&copy; 2026 Moto Forge</p>  
+
+</footer>  
+
+</body>  
+
+</html>  
+
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+<head>  
+
+    <meta charset="UTF-8">  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <title>Brands | Moto Forge</title>  
+
+    <link rel="stylesheet" href="css/styles.css">  
+
+</head>  
+
+   
+
+<body>  
+
+<header class="site-header">  
+
+    <nav class="navbar">  
+
+        <h1 class="logo">Moto Forge</h1>  
+
+    </nav>  
+
+</header>  
+
+   
+
+<main>  
+
+    <section class="page-header">  
+
+        <h2>Brands We Carry</h2>  
+
+    </section>  
+
+   
+
+    <section class="brand-list">  
+
+        <ul>  
+
+            <li>Alpinestars</li>  
+
+            <li>Bell</li>  
+
+            <li>Dainese</li>  
+
+            <li>Klim</li>  
+
+            <li>REV'IT</li>  
+
+            <li>Fox Racing</li>  
+
+        </ul>  
+
+    </section>  
+
+</main>  
+
+   
+
+<footer class="site-footer">  
+
+    <p>&copy; 2026 Moto Forge</p>  
+
+</footer>  
+
+</body>  
+
+</html>  
+
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+<head>  
+
+    <meta charset="UTF-8">  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <title>Gear Guide | Moto Forge</title>  
+
+    <link rel="stylesheet" href="css/styles.css">  
+
+</head>  
+
+   
+
+<body>  
+
+<header class="site-header">  
+
+    <nav class="navbar">  
+
+        <h1 class="logo">Moto Forge</h1>  
+
+    </nav>  
+
+</header>  
+
+   
+
+<main>  
+
+    <section class="page-header">  
+
+        <h2>Gear Guide</h2>  
+
+        <p>Expert reviews, tips, and riding insights.</p>  
+
+    </section>  
+
+   
+
+    <section class="blog-grid">  
+
+        <article class="blog-card">Helmet Guides</article>  
+
+        <article class="blog-card">Jacket Reviews</article>  
+
+        <article class="blog-card">Armor Explained</article>  
+
+        <article class="blog-card">Rider Tips</article>  
+
+        <article class="blog-card">2026 Roundups</article>  
+
+    </section>  
+
+</main>  
+
+   
+
+<footer class="site-footer">  
+
+    <p>&copy; 2026 Moto Forge</p>  
+
+</footer>  
+
+</body>  
+
+</html>  
+
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+<head>  
+
+    <meta charset="UTF-8">  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <title>About Moto Forge</title>  
+
+    <link rel="stylesheet" href="css.styles.css">  
+
+</head>  
+
+   
+
+<body>  
+
+<header class="site-header">  
+
+    <nav class="navbar">  
+
+        <h1 class="logo">Moto Forge</h1>  
+
+    </nav>  
+
+</header>  
+
+   
+
+<main>  
+
+    <section class="page-header">  
+
+        <h2>Our Story</h2>  
+
+        <p>Moto Forge is built for riders who treat motorcycling as a craft.</p>  
+
+    </section>  
+
+   
+
+    <section class="about-content">  
+
+        <h3>Brand Partners</h3>  
+
+        <p>We proudly partner with Alpinestars, Bell, Klim, Dainese, and more.</p>  
+
+   
+
+        <h3>Careers</h3>  
+
+        <p>Join a team dedicated to rider safety and innovation.</p>  
+
+    </section>  
+
+</main>  
+
+   
+
+<footer class="site-footer">  
+
+    <p>&copy; 2026 Moto Forge</p>  
+
+</footer>  
+
+</body>  
+
+</html>  
+
+<!DOCTYPE html>  
+
+<html lang="en">  
+
+<head>  
+
+    <meta charset="UTF-8">  
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+    <title>Support | Moto Forge</title>
+    
+   <section class="contact-form-section"> 
+
+    <h2>Contact Us</h2> 
+
+    <form class="contact-form" action="#" method="post"> 
+
+  
+
+        <label for="fullName">Full Name</label> 
+
+        <input type="text" id="fullName" name="fullName" placeholder="Your full name"> 
+
+  
+
+        <label for="email">Email Address *</label> 
+
+        <input type="email" id="email" name="email" placeholder="you@example.com" required> 
+
+  
+
+        <label for="subject">Subject</label> 
+
+        <input type="text" id="subject" name="subject" placeholder="Subject"> 
+
+  
+
+        <label for="message">Message *</label> 
+
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea> 
+
+  
+
+        <button type="submit" class="btn-primary">Send Message</button> 
+
+    </form> 
+
+</section> 
+
+    <link rel="stylesheet" href="css.styles.css">  
+
+</head>  
+
+   
+
+<body>  
+
+<header class="site-header">  
+
+    <nav class="navbar">  
+
+        <h1 class="logo">Moto Forge</h1>  
+
+    </nav>  
+
+</header>  
+
+   
+
+<main>  
+
+    <section class="page-header">  
+
+        <h2>Support</h2>  
+
+    </section>  
+
+   
+
+    <section class="support-links">  
+
+        <ul>  
+
+            <li>Contact Us</li>  
+
+            <li>FAQ</li>  
+
+            <li>Returns & Warranty</li>  
+
+            <li>Sizing Guides</li>  
+
+        </ul>  
+
+    </section>  
+
+</main>  
+
+   
+
+<footer class="site-footer">  
+
+    <p>&copy; 2026 Moto Forge</p>  
+
+</footer>  
+
+<script src="ProductDisplay.js"></script> 
+
+</body>  
+
+</html>  
+  
+
+  
+
+  
+
+  
+
+ 
