@@ -5,11 +5,12 @@
 // Load or initialize inventory
 function initInventory() {
     const defaultInventory = [
-        { id: 1, name: "Rogue Helmet", price: 129.99, stock: 5 },
-        { id: 2, name: "Viper Gloves", price: 49.99, stock: 8 },
-        { id: 3, name: "Titan Jacket", price: 199.99, stock: 3 },
-        { id: 4, name: "Trail Boots", price: 159.99, stock: 4 }
-    ];
+    { id: "helmet1", name: "Rider Pro Helmet", price: 129.99, stock: 5 },
+    { id: "jacket1", name: "Forge Leather Jacket", price: 199.99, stock: 3 },
+    { id: "gloves1", name: "MotoGrip Gloves", price: 49.99, stock: 8 },
+    { id: "boots1", name: "TrailMaster Boots", price: 159.99, stock: 4 }
+];
+
 
     const saved = localStorage.getItem("inventory");
     const inventory = saved ? JSON.parse(saved) : defaultInventory;
