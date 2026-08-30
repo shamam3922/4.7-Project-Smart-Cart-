@@ -1,0 +1,76 @@
+# Moto Forge
+
+**Gear Up. Ride Bold.**
+
+## About This Project
+
+Moto Forge is a full-stack B2C e-commerce website built for serious motorcycle riders. This platform is a one-stop online destination for CE-certified protective gear, premium riding apparel, and rider accessories sourced from top brands like Alpinestars, Bell, Dainese, Klim, and REV'IT.
+
+This repository contains all source code developed for the **E-Commerce Web Development** course at **ECPI University**.
+
+---
+
+## Website Purpose
+
+Moto Forge addresses a clear gap in the motorcycle gear market. Existing retailers such as RevZilla, Cycle Gear, and Amazon offer large unfocused catalogs with generic brand experiences. Moto Forge differentiates through three pillars: a curated safety-first product selection where every item is CE-rated and vetted, a premium rider-first brand identity with bold design authentic to the riding community, and expert editorial content including sizing guides, gear reviews, and riding tips that build trust and drive organic traffic.
+
+Target customers include daily commuter riders who prioritize lightweight high-visibility gear, touring and adventure riders who need weather-resistant multi-season kit, and track and sport riders seeking CE Level 2 armor and race-grade leathers.
+
+---
+
+## Planned Feature Roadmap
+
+### Phase 1 - Foundation (Weeks 1-2) - IN PROGRESS
+
+Completed: public GitHub repository initialized, index.html scaffold with author name and date in comment, README.md with project overview and feature roadmap.
+
+Up next: brand style guide (colors, fonts, component library) and wireframes for the homepage, product listing page, and product detail page.
+
+### Phase 2 - Core Frontend (Weeks 3-5)
+
+Homepage layout including hero section, category strip, featured product grid, and footer. Product Listing Page with filter sidebar for category, brand, size, and CE rating. Product Detail Page with image gallery, variant selector, and add-to-cart. Responsive mobile-first design using Flexbox and CSS Grid. Navigation bar with search, cart icon, and account menu.
+
+### Phase 3 - Backend and Data (Weeks 6-8)
+
+PostgreSQL database schema covering Product, ProductVariant, Category, and Brand entities. RESTful API built with Node.js and Express for catalog, cart, and order data. User authentication with registration, login, and JWT sessions. Algolia search integration with faceted filtering by size, brand, and CE rating. Stripe payment integration supporting credit and debit cards and Apple Pay.
+
+### Phase 4 - Polish and Launch (Weeks 9-12)
+
+Forge Points loyalty program with points tracking and redemption. Gear Guide blog section with SEO-optimized editorial content. Email capture and Klaviyo integration for welcome flows and abandoned cart sequences. QA and cross-browser testing across Chrome, Firefox, Safari, and Edge. Deployment to Vercel for the frontend and AWS RDS and S3 for the backend and media storage. Google Analytics 4 setup and post-launch performance monitoring.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript ES6+, React.js / Next.js |
+| Backend | Node.js + Express REST API |
+| Database | PostgreSQL |
+| Search | Algolia |
+| Payments | Stripe |
+| Hosting | Vercel + AWS RDS and S3 |
+| Email Marketing | Klaviyo |
+
+---
+
+## Project Structure
+
+```
+moto-forge/
+  index.html    - Initial HTML scaffold with author name and date
+  README.md     - Project overview and feature roadmap
+  css/          - Stylesheets
+  js/           - JavaScript source files
+  assets/       - Images, icons, and fonts
+  docs/         - Proposal and design documentation
+```
+
+---
+
+## Author
+
+**Shaun Mammano**
+E-Commerce Web Development | ECPI University | August 2026
+
+This project is developed for academic purposes as part of the ECPI University curriculum.
