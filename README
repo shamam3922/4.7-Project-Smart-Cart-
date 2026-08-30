@@ -1,76 +1,169 @@
-# Moto Forge
 
-**Gear Up. Ride Bold.**
+🏍️ Overview
+Grand-Opening is a multi‑page retail website for motorcycle gear, built as part of the ECPI SDC260 course project.
+The site includes product listings, dynamic cart functionality, checkout flow, brand pages, gear guides, and a fully functional Network Connection Test page required for Phase 5.5.
 
-## About This Project
+The project is designed to run both locally (for telemetry testing) and through GitHub Pages for deployment.
 
-Moto Forge is a full-stack B2C e-commerce website built for serious motorcycle riders. This platform is a one-stop online destination for CE-certified protective gear, premium riding apparel, and rider accessories sourced from top brands like Alpinestars, Bell, Dainese, Klim, and REV'IT.
+🚀 Current Website Features
+🛒 Shopping & Product Pages
+All product pages are fully implemented and organized under the /shop-*.html structure:
 
-This repository contains all source code developed for the **E-Commerce Web Development** course at **ECPI University**.
+Helmets (shop-helmets.html)
 
----
+Jackets (shop-jackets.html)
 
-## Website Purpose
+Gloves (shop-gloves.html)
 
-Moto Forge addresses a clear gap in the motorcycle gear market. Existing retailers such as RevZilla, Cycle Gear, and Amazon offer large unfocused catalogs with generic brand experiences. Moto Forge differentiates through three pillars: a curated safety-first product selection where every item is CE-rated and vetted, a premium rider-first brand identity with bold design authentic to the riding community, and expert editorial content including sizing guides, gear reviews, and riding tips that build trust and drive organic traffic.
+Boots (shop-boots.html)
 
-Target customers include daily commuter riders who prioritize lightweight high-visibility gear, touring and adventure riders who need weather-resistant multi-season kit, and track and sport riders seeking CE Level 2 armor and race-grade leathers.
+Pants (shop-pants.html)
 
----
+Accessories (shop-accessories.html)
 
-## Planned Feature Roadmap
+Women’s Gear (shop-women.html)
 
-### Phase 1 - Foundation (Weeks 1-2) - IN PROGRESS
+Sale Items (shop-sale.html)
 
-Completed: public GitHub repository initialized, index.html scaffold with author name and date in comment, README.md with project overview and feature roadmap.
+General Shop Page (shop.html)
 
-Up next: brand style guide (colors, fonts, component library) and wireframes for the homepage, product listing page, and product detail page.
+Each page uses:
 
-### Phase 2 - Core Frontend (Weeks 3-5)
+ProductDisplay.js — dynamically loads product cards
 
-Homepage layout including hero section, category strip, featured product grid, and footer. Product Listing Page with filter sidebar for category, brand, size, and CE rating. Product Detail Page with image gallery, variant selector, and add-to-cart. Responsive mobile-first design using Flexbox and CSS Grid. Navigation bar with search, cart icon, and account menu.
+cart.js — handles cart interactions
 
-### Phase 3 - Backend and Data (Weeks 6-8)
+🛒 Shopping Cart System
+Implemented features include:
 
-PostgreSQL database schema covering Product, ProductVariant, Category, and Brand entities. RESTful API built with Node.js and Express for catalog, cart, and order data. User authentication with registration, login, and JWT sessions. Algolia search integration with faceted filtering by size, brand, and CE rating. Stripe payment integration supporting credit and debit cards and Apple Pay.
+Add‑to‑cart buttons across all product pages
 
-### Phase 4 - Polish and Launch (Weeks 9-12)
+Dynamic cart listing (cart.html)
 
-Forge Points loyalty program with points tracking and redemption. Gear Guide blog section with SEO-optimized editorial content. Email capture and Klaviyo integration for welcome flows and abandoned cart sequences. QA and cross-browser testing across Chrome, Firefox, Safari, and Edge. Deployment to Vercel for the frontend and AWS RDS and S3 for the backend and media storage. Google Analytics 4 setup and post-launch performance monitoring.
+Item quantity handling
 
----
+Price display
 
-## Tech Stack
+Cart persistence during session
 
-| Layer | Technology |
-|---|---|
-| Frontend | HTML5, CSS3, JavaScript ES6+, React.js / Next.js |
-| Backend | Node.js + Express REST API |
-| Database | PostgreSQL |
-| Search | Algolia |
-| Payments | Stripe |
-| Hosting | Vercel + AWS RDS and S3 |
-| Email Marketing | Klaviyo |
+💳 Checkout & Order Confirmation
+Checkout form (checkout.html)
 
----
+Order confirmation page (order-confirmation.html)
 
-## Project Structure
+Improved readability and structure
 
-```
-moto-forge/
-  index.html    - Initial HTML scaffold with author name and date
-  README.md     - Project overview and feature roadmap
-  css/          - Stylesheets
-  js/           - JavaScript source files
-  assets/       - Images, icons, and fonts
-  docs/         - Proposal and design documentation
-```
+Form validation and user flow
 
----
+🧭 Navigation & Informational Pages
+Homepage (index.html)
 
-## Author
+Brands (brands.html)
 
-**Shaun Mammano**
-E-Commerce Web Development | ECPI University | August 2026
+Gear Guide (gear-guide.html)
 
-This project is developed for academic purposes as part of the ECPI University curriculum.
+About (about.html)
+
+Support (support.html)
+
+All pages use consistent header, footer, and styling.
+
+🌐 Network Connection Test Page (New for 5.5)
+File: network-test.html  
+Script: network-test.js
+
+This page dynamically displays telemetry when the site is run locally:
+
+Local Host Name
+
+Current Communication Port
+
+Current Transmission Protocol
+
+Last Time Launched
+
+Telemetry updates automatically using JavaScript:
+
+javascript
+window.location.hostname
+window.location.port
+window.location.protocol
+new Date().toLocaleString()
+This satisfies the “Dynamically Updated Telemetrics” requirement in the rubric.
+
+📁 Project Structure
+Code
+Grand-Opening/
+│
+├── index.html
+├── about.html
+├── brands.html
+├── gear-guide.html
+├── support.html
+│
+├── cart.html
+├── checkout.html
+├── order-confirmation.html
+│
+├── network-test.html
+├── network-test.js
+│
+├── ProductDisplay.js
+├── cart.js
+│
+├── shop.html
+├── shop-helmets.html
+├── shop-jackets.html
+├── shop-gloves.html
+├── shop-boots.html
+├── shop-pants.html
+├── shop-accessories.html
+├── shop-women.html
+├── shop-sale.html
+│
+└── styles.css
+This structure is now clean, consistent, and logically organized, meeting the Workspace Presentation rubric requirement.
+
+🛠️ Technologies Used
+HTML5
+
+CSS3
+
+JavaScript (ES6)
+
+GitHub Pages (deployment)
+
+VS Code Live Preview (local telemetry testing)
+
+📦 Deployment
+The website is deployed via GitHub Pages:
+
+https://shamam3922.github.io/Grand-Opening/ (shamam3922.github.io in Bing)
+
+Local execution is required for telemetry features.
+
+📈 Roadmap Progress (Completed Features)
+Product display system
+
+Cart functionality
+
+Checkout flow
+
+Order confirmation
+
+Network Connection Test page
+
+File organization cleanup
+
+README documentation
+
+Brand and gear guide pages
+
+Styling improvements
+
+Navigation consistency
+
+👨‍💻 Developer
+Shaun Mammano  
+ECPI University — SDC260
+Grand Opening Project (Phase 5.5)
